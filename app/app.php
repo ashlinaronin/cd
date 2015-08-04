@@ -19,23 +19,27 @@
                 <title>CD World</title>
             </head>
             <body>
+                <div class='container'>
         ";
         foreach ($cds as $album){
             $output = $output . "
-                <div class='row'>
-                    <div class='col-md-6'>
-                        <img src=" . $album->getCoverArt() . ">
+
+                    <div class='row'>
+                        <div class='col-xs-4'>
+                            <img src=" . $album->getCoverArt() . ">
+                        </div>
+                        <div class='col-xs-6'></div>
+                        <div class='col-xs-2'>
+                            <p>" . $album->getTitle() . " </p>
+                            <p>By " . $album->getArtist() . "</p>
+                            <p>$" . $album->getPrice() . " </p>
+                        </div>
                     </div>
-                    <div class='col-md-6'>
-                        <p>" . $album->getTitle() . " </p>
-                        <p>By " . $album->getArtist() . "</p>
-                        <p>$" . $album->getPrice() . " </p>
-                    </div>
-                </div>
+
                 ";
         }
 
-        $output = $output . "</body></html>";
+        $output = $output . "</div></body></html>";
         return $output;
     });
 
